@@ -22,18 +22,16 @@ export const POST = (URL, data, Recount, setReCount,) => {
     axios.post(URL,
         data
         , Recount, setReCount).then(function (response) {
-            console.log(response);
             setReCount(Recount + 1)
         }).catch(function (error) {
             console.log(error);
         });
 }
 
-export const PUT_CLASS = (URL, ID, data, Recount, setReCount,) => {
+export const PUT = (URL, ID, data, Recount, setReCount,) => {
     axios.put(URL + '/' + ID,
         data
         , Recount, setReCount).then(function (response) {
-            console.log(response);
             setReCount(Recount + 1)
         }).catch(function (error) {
             console.log(error);

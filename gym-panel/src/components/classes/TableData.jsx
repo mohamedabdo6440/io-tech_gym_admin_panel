@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/esm/Button';
 import { DELETE, class_url } from '../../libs/crudFunctions/CRUD_Functions';
 import EditPopup from './EditPopup';
 import FormData from './FormData';
+import EditForm from './EditForm';
 
 const TableData = ({
     classes,
@@ -51,7 +52,7 @@ const TableData = ({
                         return (
                             <tr key={i}>
                                 <td className='text-center'>
-                                    <img src={`${data.image === "" || "image 1" ? '/images/client.png' : `${data.image}`}`} alt='classImage' className='w-50 h-50' />
+                                    <img src={`${data.image === "" || "image 1" ? '/images/about-img.png' : `${data.image}`}`} alt='classImage' className='w-50 h-50' />
                                 </td>
                                 <td className='text-center'>{data.createdAt}</td>
                                 <td className='text-center'>{data.class_name}</td>
@@ -90,15 +91,13 @@ const TableData = ({
             <Popup
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                form={<FormData setrecounter={setReCounter} recounter={ReCounter} />}
+                form={<FormData setModalShow={setModalShow} setrecounter={setReCounter} recounter={ReCounter} />}
                 title={'Add New Class'}
             />
             <EditPopup
-                show={EditModalShow}
                 onHide={() => setEditModalShow(false)}
-                singl_data={SingleDataClass}
-                setrecounter={setReCounter}
-                recounter={ReCounter}
+                show={EditModalShow}
+                form={<EditForm setEditModalShow={setEditModalShow} singl_data={SingleDataClass} ReCount={ReCounter} setReCount={setReCounter} />}
             />
         </Table>
     )

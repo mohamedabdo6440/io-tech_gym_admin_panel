@@ -14,7 +14,7 @@ const schema = yup.object({
 
 })
 
-const FormAddClient = ({ setrecounter, recounter }) => {
+const FormAddClient = ({ setrecounter, recounter, setModalShow }) => {
 
 
     const [image, setImage] = useState("");
@@ -41,6 +41,7 @@ const FormAddClient = ({ setrecounter, recounter }) => {
     const onSubmit = (data) => {
         console.log('form submited', data);
         POST(clients_url, data, recounter, setrecounter)
+        setModalShow(false)
     }
 
 

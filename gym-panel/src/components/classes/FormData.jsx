@@ -14,7 +14,7 @@ const schema = yup.object({
 })
 
 
-const FormData = ({ setrecounter, recounter }) => {
+const FormData = ({ setrecounter, recounter, setModalShow }) => {
 
     const form = useForm({
         defaultValues: {
@@ -33,6 +33,7 @@ const FormData = ({ setrecounter, recounter }) => {
     const onSubmit = (data) => {
         console.log('form submited', data);
         POST(class_url, data, recounter, setrecounter)
+        setModalShow(false)
     }
 
     useEffect(() => {
